@@ -18,7 +18,7 @@ const Navbar = ({ userLang, setUserLang, userTheme,
     return (
         <>
             <div className="navbar flex items-center pl-5 h-12 text-center text-lime-300 bg-gray-700 gap-5">
-                <h1 className="text-lg font-bold">Geeks Code Compiler</h1>
+                <h1 className="text-lg font-bold">Learn Kiddo</h1>
                 <Select options={languages} value={userLang}
                     onChange={(e) => setUserLang(e.value)}
                     placeholder={userLang}
