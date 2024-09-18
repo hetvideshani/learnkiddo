@@ -10,6 +10,7 @@ const options = { stats: true };
 dotenv.config({ path: './.env' });
 const app = express();
 
+__dirname = path.resolve();
 app.use(cors());
 app.use(express.json());
 app.use(bodyparser.urlencoded({ extended: false }));
@@ -20,6 +21,11 @@ require('./connection/db.js');
 app.use(express.static(path.join(__dirname, 'client/build')))
 
 const user = require('./routes/userRouter.js');
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 app.use('/user', user);
 
 const video = require('./routes/videoRouter.js');
@@ -37,9 +43,11 @@ app.use('/editor', editor);
 const problem = require("./routes/problemRouter.js")
 app.use('/problem', problem);
 
-app.get('/', async (req, res) => {
-    console.log('Helloooooo');
-})
+// app.get('/', async (req, res) => {
+//     console.log('Helloooooo');
+// })
+
+console.log(__dirname)
 
 app.listen(process.env.PORT, () => {
     console.log('PORT running');
