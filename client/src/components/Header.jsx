@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom'
 
 const Header = () => {
     const user = localStorage.getItem('email');
-    console.log(user);
 
     const nav = useNavigate();
 

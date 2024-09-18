@@ -56,7 +56,6 @@ const Signup = () => {
                                         </div>
                                         <div className='flex justify-center'>
                                             <button onClick={async (e) => {
-                                                console.log(userData);
                                                 e.preventDefault();
                                                 const res = await fetch('/user/signup', {
                                                     method: 'POST',

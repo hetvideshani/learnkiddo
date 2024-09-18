@@ -61,11 +61,6 @@ export const InnerProblem = () =>{
         if (userCode === ``) {
             return
         }
-        
-        console.log(userCode);
-        console.log(userLang);
-        console.log(submit);
-        console.log(email);
 
         const res = await fetch(`/editor/compile/${param.id}`,{
             method: 'POST',
